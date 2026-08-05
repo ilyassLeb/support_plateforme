@@ -14,10 +14,8 @@ public class AiClientFallback implements FallbackFactory<AiClient> {
         return new AiClient() {
             @Override
             public AiAnalysisResponseDto analyzeTicket(AiAnalysisRequestDto request) {
-                // Log de l'erreur
                 System.err.println("Erreur appel AI-SERVICE : " + cause.getMessage());
 
-                // Retourne une réponse vide/par défaut
                 return new AiAnalysisResponseDto();
             }
         };

@@ -73,12 +73,12 @@ public class TicketServiceImpl implements TicketService {
         try {
             UserResponseDto user = userClient.getUserById(userId);
             if (user == null || user.getId() == null) {
-                throw new InvalidUserException("User not found with id: " + userId);
+                throw new InvalidUserException("Utilisateur non trouvé avec  id: " + userId);
             }
         } catch (FeignException.NotFound ex) {
-            throw new InvalidUserException("User not found with id: " + userId);
+            throw new InvalidUserException("Utilisateur non trouvé avec  id: " + userId);
         } catch (FeignException ex) {
-            throw new RuntimeException("Error while calling user-service: " + ex.getMessage());
+            throw new RuntimeException("erreur user-service: " + ex.getMessage());
         }
     }
 
